@@ -6,7 +6,7 @@ A prototype built for the SchubKI 2026 hackathon (Art Fiber Systems challenge). 
 
 ![Demo](docs/images/demo.gif)
 
-Live: https://afs-spectroscopy-assistant.vercel.app · Slides: [docs/slides.pdf](docs/slides.pdf)
+Live: https://afs-spectroscopy-assistant.vercel.app · Slides: [docs/slides.pdf](docs/slides.pdf) · Video: [docs/demo.mp4](docs/demo.mp4)
 
 ## Generated answers
 
@@ -37,6 +37,31 @@ pnpm check outputs/try       # status line, questions, citation pages
 ```
 
 The answers in [`outputs/final/`](outputs/final/) were generated this way, unedited. `runs.json` logs model, tokens, cost and time for each.
+
+## Configuration
+
+Set in `.env.local`:
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `OPENROUTER_API_KEY` | | Required |
+| `OPENROUTER_MODEL` | `openai/gpt-6.1-sol` | Assistant model |
+| `OPENROUTER_PROVIDER_ORDER` | | Optional provider slugs, e.g. `openai` |
+| `WEB_SEARCH` | `auto` | `auto`, `native`, `exa` or `off` |
+| `INGEST_MODEL` | `google/gemini-4-argon` | Vision model for `pnpm ingest` |
+
+## AFS materials
+
+The supplied files are in `materials/` and already converted in `knowledge/`, so the app runs without an ingest step. The reference document and the evaluation scenarios are not used as knowledge.
+
+To add a document (needs [poppler](https://poppler.freedesktop.org) for `pdftotext` and `pdftoppm`):
+
+```bash
+cp new.pdf materials/S07_Short_Title.pdf
+pnpm ingest --doc S07        # → knowledge/S07.md; --force redoes cached vision notes
+```
+
+The prompt loads every `knowledge/S*.md` at startup, so restart the app afterwards.
 
 ## How it works
 
