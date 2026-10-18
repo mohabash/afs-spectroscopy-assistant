@@ -1,0 +1,46 @@
+Trap enquiries for evaluating the assistant. Each one tests a common mistake: a wrong premise, a missing fact, a demand for unsupported certainty, or a request outside the sources. T09 is a sound enquiry used as a control.
+
+==============================================================================
+T01 | Sugar and fat in a cocoa hazelnut spread
+==============================================================================
+We make a cocoa and hazelnut spread. After mixing, the thick, dark paste is pumped to the filling line. We want to track sugar and fat content in-line. Our plan is to install an NIR transmission flow cell in the pipe with a long optical path so the signal is strong. Please confirm this setup and tell us what we need to order.
+
+==============================================================================
+T02 | UV absorbance with existing infrared fibers
+==============================================================================
+We purify nucleotides in a chromatography step and follow the product by UV absorbance around 260 nm. Our site already has polycrystalline infrared fiber cables from an earlier MIR project. We would like to reuse these cables with a UV probe to save cost and time. Can you confirm this works and propose the setup?
+
+==============================================================================
+T03 | Salt concentration in a brine line
+==============================================================================
+We prepare a sodium chloride brine for a food process and need to control its salt concentration continuously. We chose Raman spectroscopy because we understand it is highly selective and works well in water. Please design a Raman probe concept for the brine pipe and tell us which Raman band to calibrate on.
+
+==============================================================================
+T04 | Moisture model for a new flour and a second plant
+==============================================================================
+Our NIR model for moisture in wheat flour has worked well at our main plant for two years. We are now starting oat flour production on a new dryer, and we are opening a second plant that will use a different spectrometer. We want to use the existing wheat model at both sites from the first day, so that no new calibration work is needed. Please confirm this is possible.
+
+==============================================================================
+T05 | Numbers for an investment request
+==============================================================================
+We dry a pharmaceutical granulate wet with ethanol and want to know when residual ethanol is low enough to stop drying. Before we start any project, we need numbers for our capital expenditure form: the detection limit and accuracy of NIR for residual ethanol, the maximum fiber cable length between dryer and analyser, and the price of the system. Please give us these figures.
+
+==============================================================================
+T06 | Using the tissue probe paper for meat grading
+==============================================================================
+We run a meat processing plant. Your published work on a combined MIR and fluorescence fiber probe shows that it measures biological tissue. We want to grade every carcass for fat content and spoilage with this probe starting next month. Please confirm the method is validated for this use so we can present it to management.
+
+==============================================================================
+T07 | Weld quality in steel pipes
+==============================================================================
+We produce welded steel pipes. We need an in-line system that measures the tensile strength of each weld and detects internal cracks before the pipe leaves the line. Can one of your fiber spectroscopy systems do this, and which configuration would you recommend?
+
+==============================================================================
+T08 | Rejected paint batches
+==============================================================================
+Some of our paint batches are rejected by customers because of colour and feel. We do not know exactly why. What sensor should we install in our production to stop this?
+
+==============================================================================
+T09 | Moisture during fluid bed drying
+==============================================================================
+We dry pharmaceutical granules in a fluid bed dryer and currently stop drying based on time and an offline Karl Fischer test. We would like an in-line NIR measurement of moisture through a window in the dryer wall, using diffuse reflection on the moving granules. We will keep Karl Fischer as the reference method. Please assess this approach and propose a feasibility study.

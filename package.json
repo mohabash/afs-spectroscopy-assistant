@@ -10,7 +10,8 @@
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "ingest": "node --env-file-if-exists=.env.local scripts/ingest.ts",
-    "cases": "node --env-file-if-exists=.env.local scripts/cases.ts"
+    "cases": "node --env-file-if-exists=.env.local scripts/cases.ts",
+    "check": "node evals/check.ts"
   },
   "dependencies": {
     "@ai-sdk/react": "^4.0.147",

@@ -2,14 +2,17 @@ import { ToolLoopAgent, type InferAgentUIMessage } from "ai";
 import { createModel, modelId, openrouter } from "./model.ts";
 import { instructions } from "./prompt.ts";
 
-const webSearchEnabled = process.env.WEB_SEARCH !== "off";
+export const webSearch = process.env.WEB_SEARCH || "auto";
+if (!["auto", "native", "exa", "off"].includes(webSearch)) {
+  throw new Error(`WEB_SEARCH must be auto, native, exa or off, got "${webSearch}"`);
+}
 
 export function createAssistant(id: string = modelId) {
   return new ToolLoopAgent({
     id: "afs-assistant",
     model: createModel(id),
     instructions,
-    tools: webSearchEnabled ? { web_search: openrouter.tools.webSearch({ engine: "auto" }) } : {},
+    tools: webSearch === "off" ? {} : { web_search: openrouter.tools.webSearch({ engine: webSearch }) },
   });
 }
 
