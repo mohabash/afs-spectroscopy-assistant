@@ -62,6 +62,7 @@ export const MessageResponse = memo(
         markdownProse,
         className
       )}
+      disallowedElements={["img"]}
       linkSafety={{ enabled: false }}
       {...props}
     />
