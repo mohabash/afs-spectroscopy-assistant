@@ -2,7 +2,21 @@
 
 Reads a customer's in-line spectroscopy enquiry and writes a first technical assessment: decision status, premise check, clarification questions, recommended method and probe concept, risks and a four-stage feasibility plan. Every claim links to the AFS page it comes from.
 
+A prototype built for the SchubKI 2026 hackathon (Art Fiber Systems challenge). Not an official AFS product and not production software.
+
 ![Demo](docs/images/demo.gif)
+
+Live: https://afs-spectroscopy-assistant.vercel.app
+
+## Generated answers
+
+No setup needed to review them. Each was generated once by the assistant and committed unedited:
+
+| Final evaluation | Development |
+|---|---|
+| [H01](outputs/final/H01.md) · [H02](outputs/final/H02.md) · [H03](outputs/final/H03.md) · [H04](outputs/final/H04.md) · [H05](outputs/final/H05.md) · [H06](outputs/final/H06.md) | [D01](outputs/final/D01.md) · [D02](outputs/final/D02.md) · [D03](outputs/final/D03.md) · [D04](outputs/final/D04.md) · [D05](outputs/final/D05.md) · [D06](outputs/final/D06.md) · [D07](outputs/final/D07.md) · [D08](outputs/final/D08.md) |
+
+Citations like `[S01 p.16]` link to `materials/<file>.pdf#page=16`.
 
 ## Quick start
 
