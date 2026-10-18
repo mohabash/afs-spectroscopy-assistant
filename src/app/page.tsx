@@ -13,8 +13,27 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import type { AssistantMetadata, AssistantUIMessage } from "@/lib/agent";
 
+const EXAMPLES = [
+  {
+    label: "Whey protein",
+    text: "We run a fairly clear whey stream before a concentration step. Could an in-line measurement track protein concentration as the stream changes? Our lab can supply reference results.",
+  },
+  {
+    label: "Tablet blend",
+    text: "Our tablet press is fed from a powder blend with one active ingredient. Lab results arrive too late. Can a fiber probe in the feed frame follow the active ingredient concentration?",
+  },
+  {
+    label: "Rejected batches",
+    text: "Customers keep rejecting some of our paint batches because of colour and feel. What sensor should we install?",
+  },
+  {
+    label: "Weld cracks",
+    text: "Can you measure tensile strength and internal cracks of welded steel pipes in-line with spectroscopy?",
+  },
+];
+
 export default function Page() {
-  const { messages, sendMessage, status, error } = useChat<AssistantUIMessage>();
+  const { messages, sendMessage, status, error, stop } = useChat<AssistantUIMessage>();
   const [input, setInput] = useState("");
   const busy = status === "submitted" || status === "streaming";
 
@@ -38,10 +57,22 @@ export default function Page() {
       <Conversation className="flex-1">
         <ConversationContent>
           {messages.length === 0 && (
-            <ConversationEmptyState
-              title="Paste a customer enquiry"
-              description="The assistant answers with a decision status, clarification questions, a recommendation and a feasibility plan."
-            />
+            <ConversationEmptyState>
+              <div className="flex flex-col items-center gap-3 text-center">
+                <h3 className="text-sm font-medium">Paste a customer enquiry</h3>
+                <p className="max-w-md text-sm text-muted-foreground">
+                  The assistant answers with a decision status, clarification questions, a recommendation and a
+                  feasibility plan, each claim linked to the page of the AFS material it comes from.
+                </p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {EXAMPLES.map((example) => (
+                    <Button key={example.label} onClick={() => sendMessage({ text: example.text })} size="sm" variant="outline">
+                      {example.label}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            </ConversationEmptyState>
           )}
           {messages.map((message) => {
             const text = message.parts.flatMap((part) => (part.type === "text" ? [part.text] : [])).join("");
@@ -86,9 +117,15 @@ export default function Page() {
           placeholder="Describe the process, the sample and what should be measured…"
           value={input}
         />
-        <Button disabled={busy || !input.trim()} type="submit">
-          Send
-        </Button>
+        {busy ? (
+          <Button onClick={stop} type="button" variant="outline">
+            Stop
+          </Button>
+        ) : (
+          <Button disabled={!input.trim()} type="submit">
+            Send
+          </Button>
+        )}
       </form>
     </main>
   );
