@@ -6,7 +6,7 @@ A prototype built for the SchubKI 2026 hackathon (Art Fiber Systems challenge). 
 
 ![Demo](docs/images/demo.gif)
 
-Live: https://afs-spectroscopy-assistant.vercel.app
+Live: https://afs-spectroscopy-assistant.vercel.app · Slides: [docs/slides.pdf](docs/slides.pdf)
 
 ## Generated answers
 
